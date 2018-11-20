@@ -26,6 +26,7 @@ defmodule EXgrams do
   @spec of(String.t(), String.t()) :: set()
   def of(sentence, hedge \\ " ") do
     sentence
+    |> String.replace(~r/[\p{P}\p{S}]/, "")
     |> String.split(hedge)
     |> permute()
     |> List.flatten()
