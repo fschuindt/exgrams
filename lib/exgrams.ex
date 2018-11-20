@@ -19,7 +19,7 @@ defmodule EXgrams do
 
   ## Examples
 
-      iex> EXgrams.of("Show me the code")
+      iex> EXgrams.of("Show me the code.")
       ["Show", "me", "the", "code", "Show me", "me the", "the code",
       "Show me the", "me the code", "Show me the code"]
   """
@@ -39,15 +39,16 @@ defmodule EXgrams do
   ## Examples
 
       iex> EXgrams.grams(2, ~w(Show me the code))
-      ["Show me", "me the", "the code", "code"]
+      ["Show me", "me the", "the code"]
 
       iex> EXgrams.grams(3, ~w(Show me the code))
-      ["Show me the", "me the code", "the code"]
+      ["Show me the", "me the code"]
   """
   @spec grams(pos_integer(), set()) :: set()
   def grams(n, set) do
     set
     |> Enum.chunk_every(n, 1)
+    |> Enum.filter(fn chunk -> length(chunk) == n end)
     |> Enum.map(&present/1)
   end
 
