@@ -4,7 +4,7 @@ defmodule EXgrams.TimeFrame do
   benchmarking.
 
   Taken from:
-  https://medium.com/elixirlabs/implement-a-basic-block-yield-with-elixir-d00f313831f7
+  [page](https://medium.com/elixirlabs/implement-a-basic-block-yield-with-elixir-d00f313831f7)
 
   All credits from this module goes to
   [Mustafa Turan](https://github.com/mustafaturan).
