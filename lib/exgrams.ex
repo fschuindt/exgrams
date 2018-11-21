@@ -28,7 +28,7 @@ defmodule EXgrams do
       "one bites the", "bites the dust", "Another one bites the",
       "one bites the dust", "Another one bites the dust"]
 
-      iex> EXgrams.of("Another one bites the dust.") # Runs sync.
+      iex> EXgrams.of("Another one bites the dust.", :sync) # Runs sync.
       ["Another", "one", "bites", "the", "dust", "Another one",
       "one bites", "bites the", "the dust", "Another one bites",
       "one bites the", "bites the dust", "Another one bites the",
