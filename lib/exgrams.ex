@@ -54,6 +54,10 @@ defmodule EXgrams do
       ["Another one bites", "one bites the", "bites the dust"]
   """
   @spec grams(pos_integer(), set()) :: set()
+  def grams(n, set) when is_binary(set) do
+    grams(n, prepare(set, " "))
+  end
+
   def grams(n, set) do
     set
     |> Enum.chunk_every(n, 1)
@@ -61,8 +65,16 @@ defmodule EXgrams do
     |> Enum.map(&join/1)
   end
 
+  @doc """
+  Transforms a binary string into a `t:EXgrams.set/0`.
+
+  ## Examples
+
+      iex> EXgrams.prepare("Hell broke loose", " ")
+      ["Hell", "broke", "loose"]
+  """
   @spec prepare(String.t(), String.t()) :: set()
-  defp prepare(sentence, hedge) do
+  def prepare(sentence, hedge) do
     sentence
     |> String.replace(~r/[\p{P}\p{S}]/, "")
     |> String.replace("\n", " ")
